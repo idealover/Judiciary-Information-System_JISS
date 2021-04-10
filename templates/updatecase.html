@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+  <style>
+  	body{
+		margin:0;
+		color:#6a6f8c;
+		background-color: rgb(255,240,255);
+		font:600 16px/18px 'Open Sans',sans-serif;
+	}
+	*,:after,:before{box-sizing:border-box}
+	.clearfix:after,.clearfix:before{content:'';display:table}
+	.clearfix:after{clear:both;display:block}
+	a{color:inherit;text-decoration:none}
+	
+	.login-wrap{
+		width:100%;
+		margin:1vh 0px 1vh 0px;
+		margin-left: auto;
+		margin-right: auto;
+		max-width:99%;
+		height:98vh;
+		background:url(https://raw.githubusercontent.com/theAmMan/JISS/main/jstc.jpg) no-repeat center;
+		background-size:100%;
+		background-position:center;
+		position:relative;
+		box-shadow:10px 12px 15px 10px rgba(0,0,0,.24),0 17px 50px 30px rgba(0,0,0,.19);
+	}
+	.login-html{
+		width:100%;
+		height:100%;
+		overflow: auto;
+		position:relative;
+		padding:20px 50px 130px 50px;
+		background:rgba(0,0,40,.5);
+	}
+	.error{
+		color:red;
+	}
+	.success{
+		color: #55ffbb;
+	}
+	.login-html .hearing-htm,
+	.login-html .adjourn-htm,
+	.login-html .close-htm{
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+	  	padding:5px 30px 20px 30px;
+		position:absolute;
+		transform:rotateY(180deg);
+		backface-visibility:hidden;
+		transition:all .4s linear;
+	}
+	.home{
+		text-align:right;
+		margin-bottom:10px;
+		color:#ffffcf;
+	}
+	.login-html .hearing,
+	.login-html .adjourn,
+	.login-html .close{
+		display:none;
+	}
+	.login-html .tab,
+	.login-form .group .label,
+	.login-form .group .button{
+		text-transform:uppercase;
+	}
+	.login-html .tab{
+		font-size:22px;
+		margin-right:15px;
+		padding-bottom:5px;
+		padding-top:25px;
+		margin:0 15px 0px 0;
+		display:inline-block;
+		border-bottom:2px solid transparent;
+	}
+	.login-html .hearing:checked + .tab,
+	.login-html .adjourn:checked + .tab,
+	.login-html .close:checked + .tab{
+		color:#fff;
+		border-color:#1161ee;
+	}
+	.login-form{
+		min-height:345px;
+		position:relative;
+		perspective:1000px;
+		transform-style:preserve-3d;
+	}
+	.login-form .group{
+		margin-bottom:15px;
+	}
+	.login-form .group .label,
+	.login-form .group .input,
+	.login-form .group .input2,
+	.login-form .group .button{
+		width:100%;
+		color:#fff;
+		display:block;
+	}
+	.login-form .group .input,
+	.login-form .group .input2,
+	.login-form .group .button{
+		border:none;
+		padding:15px 20px;
+		border-radius:25px;
+		background:rgba(255,255,255,.1);
+	}
+	.login-form .group .label{
+		color:#aaa;
+		font-size:12px;
+	}
+	.login-form .group .button{
+	  	margin-top:50px;
+		background:#1161ee;
+	  	font-size:13px;
+	  	padding:12px;
+	}
+	.login-html .hearing:checked + .tab + .adjourn + .tab + .close + .tab + .login-form .hearing-htm{
+		transform:rotate(0);
+	}
+	.login-html .adjourn:checked + .tab + .close + .tab + .login-form .adjourn-htm{
+		transform:rotate(0);
+	}
+	.login-html .close:checked + .tab + .login-form .close-htm{
+		transform:rotate(0);
+	}
+	.input{
+		margin-top: 10px;
+		margin-bottom: 60px;
+	}
+	#cin{
+		width: 60%;
+	}
+	#reas,#sum{
+		height:120px;
+	}
+	#jud,
+	#casesum{
+		height:90px;
+	}
+	.hr{
+		height:2px;
+		margin:50px 0 50px 0;
+		background:rgba(255,255,255,.2);
+	}
+	.hr2{
+		height:2px;
+		margin:50px 0 50px 0;
+		background:rgba(255,255,255,.2);
+	}
+	textarea{
+		resize: none;
+	}
+  </style>
+  <title>Update Case</title>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="login-wrap">
+	<div class="login-html">
+	<div class="error">
+	{%if error%}
+		<p><strong>Error:</strong> {{ error }}</p>
+	{% endif %}	
+	</div>
+    <div class="success">
+	{%if success%}
+		<p>{{ success }}</p>
+	{% endif %}	
+	</div>
+	<form action = "" method = "post">
+		<input id="tab-1" type="radio" name="tab" class="hearing" value="hear" checked><label for="tab-1" class="tab">Hearing</label>
+		<input id="tab-2" type="radio" name="tab" class="adjourn" value="adj"><label for="tab-2" class="tab">Adjourn</label>
+		<input id="tab-3" type="radio" name="tab" class="close" value="clo"><label for="tab-3" class="tab">Close Case</label>
+		<div class="login-form">
+			<div class="hearing-htm">
+				<div class="home"><A href="/reg/JISS_Admin">Return home</A></div>
+				<div class="group">
+					<label for="cin" class="label">CIN</label>
+					<input id="cin" type="text" class="input" name=cin>
+				</div>
+				<div class="group">
+					<label for="sum" class="label">Summary</label>
+					<textarea rows="5" cols="60" id="sum" type="text" class="input" name=summary></textarea> 
+				</div>
+				<div class="group">
+					<input type="submit" class="button" name = "submit_button" value="Add Hearing">
+				</div>
+				<div class="hr"></div>
+			</div>
+			<div class="adjourn-htm">
+				<div class="home"><A href="/reg/JISS_Admin">Return home</A></div>
+				<div class="group">
+					<label for="cin" class="label">CIN</label>
+					<input id="cin" type="text" class="input" name=cin1>
+				</div>
+				<div class="group">
+					<label for="reas" class="label">Reason</label>
+					<textarea rows="5" cols="60" id="reas" type="text" class="input" name=reason></textarea> 
+				</div>
+				<div class="group">
+					<input type="submit" class="button" name = "submit_button" value="Adjourn">
+				</div>
+				<div class="hr"></div>
+			</div>
+			<div class="close-htm">
+				<div class="home"><A href="/reg/JISS_Admin">Return home</A></div>
+				<div class="group">
+					<label for="cin" class="label">CIN</label>
+					<input id="cin" type="text" class="input2" name=cin2>
+				</div>
+				<div class="group">
+					<label for="jud" class="label">Judgement</label>
+					<textarea rows="5" cols="60" id="jud" type="text" class="input2" name=judgement></textarea> 
+				</div>
+				<div class="group">
+					<label for="casesum" class="label">Case Summary</label>
+					<textarea rows="5" cols="60" id="casesum" type="text" class="input2" name=casesummary></textarea> 
+				</div>
+				<div class="group">
+					<input type="submit" class="button" name = "submit_button" value="Close Case">
+				</div>
+				<div class="hr2"></div>
+			</div>
+		</div>
+	</form>
+	</div>
+</div>
+<!-- partial -->
+  
+</body>
+</html>

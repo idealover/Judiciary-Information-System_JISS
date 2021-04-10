@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+  <style>
+  	body{
+	margin:0;
+	color:#ddd;
+	background-color: rgb(255,235,255);
+	font:600 16px/18px 'Open Sans',sans-serif;
+}
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+.case-wrap{
+	background:url(https://raw.githubusercontent.com/theAmMan/JISS/main/jstc.jpg) no-repeat center;
+	background-size:100%;
+	width: 99%;
+	height:98vh;
+	margin: auto;
+	margin-top: 0.5%;
+	background-position:center;
+	position:relative;
+	box-shadow:10px 12px 15px 10px rgba(0,0,0,.24),0 17px 50px 30px rgba(0,0,0,.19);
+}
+.case-html{
+	width:100%;
+	height:100%;
+	position:relative;
+	padding:30px 50px 0px 50px;
+	background:rgba(0,0,40,.5);
+}
+.case-html .case-htm{
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	height: 100%;
+  	padding:5px 30px 10px 30px;
+  	overflow: auto;
+	position:relative;
+	backface-visibility:hidden;
+}
+.case-html .case{
+	display:none;
+}
+h1{
+	font-family: "Oswald";
+  	color:rgba(255,100,225,0.8);
+  	text-transform:uppercase;
+	font-size:28px;
+	margin-right:15px;
+  	padding-top:0px;
+  	padding-bottom:0px;
+	text-decoration:underline 2px solid ;
+}
+.date{
+	margin-bottom: 5px;
+}
+.case-form{
+	height: 100%;
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
+}
+.group{
+	height: 50vh;
+	margin-bottom: 0px;
+	font-size: 17px;
+}
+.reason{
+	color: rgba(210,230,250,0.8);
+	font-size: 15px;
+}
+.hr{
+	height:2px;
+	margin:10px 10px 10px 10px;
+	background:rgba(255,255,255,.2);
+}
+
+  </style>
+  <title>Adjournments</title>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="case-wrap">
+	<div class="case-html">
+    <div class="case-form">
+    <div class="case-htm">
+    	<h1>Adjournments</h1>
+    	<div class="group">
+			{%for i in message%}
+				<div class="hr"></div>
+				<div class="date"><b>Date: </b>{{i[0]}}</div>
+				<div class="reason"><b>Reason: </b><i>{{i[1]}}</i></div>
+			{%endfor%}
+			<div class="hr"></div>
+		</div>
+    </div>
+	</div>
+</div>
+<!-- partial -->
+  
+</body>
+</html>

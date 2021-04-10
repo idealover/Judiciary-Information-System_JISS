@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+  <style>
+  	body{
+	margin:0;
+	color:#ddd;
+	background-color: rgb(235,255,255);
+	font:600 16px/18px 'Open Sans',sans-serif;
+}
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+.case-wrap{
+	background:url(https://raw.githubusercontent.com/theAmMan/JISS/main/jstc.jpg) no-repeat center;
+	background-size:100%;
+	width: 99%;
+	height:98vh;
+	margin: auto;
+	margin-top: 0.5%;
+	background-position:center;
+	position:relative;
+	box-shadow:10px 12px 15px 10px rgba(0,0,0,.24),0 17px 50px 30px rgba(0,0,0,.19);
+}
+.case-html{
+	width:100%;
+	height:100%;
+	position:relative;
+	padding:20px 50px 20px 50px;
+	background:rgba(0,0,40,.5);
+}
+.case-html .case-htm{
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	overflow: auto;
+  	padding:5px 30px 0px 30px;
+	position:relative;
+	backface-visibility:hidden;
+}
+.case-htm{
+	height:80vh;
+	overflow: auto;
+}
+.case-html .case{
+	display:none;
+}
+.case-form .group .label,
+.case-form .group .button{
+	text-transform:uppercase;
+}
+h1{
+	font-family: "Oswald";
+  	color:#fff;
+  	text-transform:uppercase;
+	font-size:28px;
+	margin-right:15px;
+	margin-bottom: 20px;
+  	padding-top:0px;
+  	padding-bottom:0px;
+	text-decoration:underline 2px solid;
+}
+h1,.home{
+	display: inline-block;
+}
+.home{
+	margin-left: 70%;
+	color: #ffee99;
+	text-decoration: 1px solid underline;
+}
+.error{
+	color:red;
+	margin-top: 0px;
+}
+.success{
+	color:#55ffaf;
+	margin-top: 0px;
+}
+.case-form{
+	min-height:345px;
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
+}
+.case-form .group{
+	margin-bottom:12px;
+}
+.case-form .group .label{
+  width:25%;
+	color:#fff;
+  display:inline-block;
+}
+
+.case-form .group .input{
+	width:70%;
+	color:#fff;
+	display:inline-block;
+}
+.case-form .group .button1{
+  width:40%;
+	color:#fff;
+	display:inline-block;
+}
+.case-form .group .input,
+.case-form .group .button1{
+	border:none;
+	padding:8px 20px;
+	border-radius:12px;
+	background:rgba(255,255,255,.2);
+}
+.case-form .group .label{
+	color:#aaa;
+	font-size:14px;
+}
+.case-form .group .button1{
+	text-transform:uppercase;
+  	display:inline-block;
+  	margin-top:15px;
+  	margin-left:140px;
+	background:#1171ae;
+  	font-size:13px;
+  	padding:8px;
+}
+  </style>
+  <title>Add Case</title>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="case-wrap">
+	<div class="case-html">
+    <h1>Add Case</h1>
+    <div class="home"><A href="/reg/JISS_Admin/">Return home</A></div>
+    <div class="case-form">
+    <div class="case-htm">
+    	<div class="error">
+	    {% if error %}
+	        <p><strong>Error:</strong> {{ error }}</p>
+	    {% endif %}
+		</div>
+		<div class="success">
+	    {% if success %}
+	        <p>{{ success }}</p>
+	    {% endif %}
+		</div>
+    	<form action = "" method = "post">
+			<div class="group">
+				<label for="defname" class="label">Defendent Name</label>
+				<input id="defname" type="text" class="input" name=defname>
+			</div>
+			<div class="group">
+				<label for="defad" class="label">Defendent Address</label>
+				<input id="defad" type="text" class="input" name=defad>
+			</div>
+			<div class="group">
+				<label for="crmtp" class="label">Crime Type</label>
+				<input id="crmtp" type="text" class="input" name=crmtp>
+			</div>
+			<div class="group">
+				<label for="crmdt" class="label">Crime Date</label>
+				<input id="crmdt" type="text" class="input" name=crmdt>
+			</div>
+        	<div class="group">
+				<label for="crmln" class="label">Crime Location</label>
+				<input id="crmln" type="text" class="input" name=crmln>
+			</div>
+        	<div class="group">
+				<label for="ofcnm" class="label">Officer Name</label>
+				<input id="ofcnm" type="text" class="input" name=ofnm>
+			</div>
+        	<div class="group">
+				<label for="arstdt" class="label">Arrest Date</label>
+				<input id="arstdt" type="text" class="input" name=arstdt>
+			</div>
+        	<div class="group">
+				<label for="jdgnm" class="label">Judge Name</label>
+				<input id="jdgnm" type="text" class="input" name=jdgnm>
+			</div>
+			<div class="group">
+				<label for="lawnm" class="label">Lawyer Name</label>
+				<input id="lawnm" type="text" class="input" name=lawnm>
+			</div>
+       	 	<div class="group">
+				<label for="prnm" class="label">Prosecutor Name</label>
+				<input id="prnm" type="text" class="input" name=prnm>
+			</div>
+			<div class="group">
+				<input type="submit" class="button1" value="Submit">
+			</div>
+		</form>
+    </div>
+	</div>
+</div>
+<!-- partial -->
+  
+</body>
+</html>

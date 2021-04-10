@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+  <style>
+  	body{
+	margin:0;
+	color:#6a6f8c;
+	background-image:url(https://raw.githubusercontent.com/theAmMan/JISS/main/court.jpeg);
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-size:50%;
+	background-position: right;
+	font:600 16px/18px 'Open Sans',sans-serif;
+}
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+.login-wrap{
+	width:100%;
+	margin-left: 20px;
+	margin-top: 10px;
+	max-width:550px;
+	background:url(https://raw.githubusercontent.com/theAmMan/JISS/main/jstc.jpg) no-repeat center;
+	background-position:center;
+	position:relative;
+	box-shadow:10px 12px 15px 10px rgba(0,0,0,.24),0 17px 50px 30px rgba(0,0,0,.19);
+}
+.login-html{
+	width:100%;
+	height:100%;
+	position:relative;
+	padding:30px 50px 10px 50px;
+	margin-bottom:20px;
+	background:rgba(0,0,40,.5);
+}
+.login-form{
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
+	display: inline;
+}
+.username{
+  color:#e0e0e0;
+  width:80%;
+}
+.login-form .group .button,
+.button2{	
+	border:none;
+	box-shadow:3px 5px 6px 3px rgba(0,0,0,.14),0 5px 10px 8px rgba(0,0,0,.19);
+}
+.login-form .group .button{
+	text-transform:uppercase;
+	border-radius:18px;
+	color:#fff;
+	width:55%;
+	margin-top:0px;
+  	margin-bottom:30px;
+  	margin-left: 100px;
+  	font-size:13px;
+  	padding:10px;
+}
+.button2{
+	border-radius:2px;
+	color:#fff;
+	width:17%;
+	margin-top:0px;
+  	margin-bottom:0px;
+  	margin-left: 400px;
+  	background:#11c16e;
+  	font-size:13px;
+  	padding:5px;
+}
+#add{
+	margin-top: 15px;
+	background:rgba(197,125,93,0.7);
+	transition-duration: 0.4s;
+}
+#add:hover {
+	background-color: white;
+	color: #b19171;
+}
+#stat{
+	background:rgba(87,93,207,0.7);
+	transition-duration: 0.4s;
+}
+#stat:hover {
+	background-color: white;
+	color: #6171b1;
+}
+#update{
+	background:rgba(93,207,77,0.7);
+	transition-duration: 0.4s;
+}
+#update:hover {
+	background-color: white;
+	color: #71b161;
+}
+#details{
+	background:rgba(191,51,197,0.7);
+	transition-duration: 0.8s;
+}
+#details:hover {
+	background-color: white;
+	color: #a151b1;
+}
+#money{
+	background:rgba(191,180,11,0.7);
+	transition-duration: 0.8s;
+	margin-bottom: 15px;
+}
+#money:hover {
+	background-color: white;
+	color: rgb(191,180,11);
+}
+#adduser,
+#delete{
+	border-radius:8px;
+	padding:7px;
+	width: 35%;
+	margin-bottom:0px;
+	margin-left: 45px;
+	background:rgba(07,98,247,0.7);
+	display: inline-block;
+	transition-duration: 0.8s;
+}
+#adduser:hover,
+#delete:hover{
+	background-color: white;
+	color: #1191ae;
+}
+.txt{
+	text-decoration: underline;
+	margin-right: 0;
+	margin-left: 20px;
+	margin-top: 20px;
+	margin-bottom: 25px;
+	color:#9a9fbc;
+}
+.hr{
+	height:2px;
+	margin:25px 10px 20px 10px;
+	background:rgba(255,255,255,.2);
+}
+  </style>
+  <title>Welcome Admin</title>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="login-wrap">
+	<div class="login-html">
+	<form action="" method="post">
+    <div class="username"><p><strong>Welcome </strong>{{message}}</p></div>
+    <div class="group">
+		<input type="submit" class="button2" name ="submit_button" value="Log Out">
+	</div>
+		<div class="login-form">
+			<div class="group">
+				<input type="submit" class="button" name ="submit_button" value="Add Case" id="add">
+			</div>
+			<div class="group">
+				<input type="submit" class="button" name ="submit_button" value="Get Case Status" id="stat">
+			</div>
+			<div class="group">
+				<input type="submit" class="button" name ="submit_button" value="Update Case" id="update">
+			</div>
+			<div class="group">
+				<input type="submit" class="button" name ="submit_button" value="View Case Details" id="details">
+			</div>
+			<div class="group">
+				<input type="submit" class="button" name ="submit_button" value="Add Money" id="money">
+			</div>
+			<div class="txt">Update User</div>
+			<div class="group">
+				<input type="submit" class="button" name ="submit_button" value="Add User" id="adduser">
+				<input type="submit" class="button" name ="submit_button" value="Delete User" id="delete">
+			</div>
+			<div class="hr"></div>
+      </form>
+		</div>
+	</div>
+</div>
+<!-- partial -->
+  
+</body>
+</html>

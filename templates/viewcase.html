@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+  <style>
+  	body{
+	margin:0;
+	color:#6a6f8c;
+	background-image:url(https://raw.githubusercontent.com/theAmMan/JISS/main/court.jpeg);
+	background-position: right;
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-size:50%;
+	font:600 16px/18px 'Open Sans',sans-serif;
+}
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+.login-wrap{
+	margin-left: 5vh;
+	margin-top: 10vh;
+	max-width:40vw;
+	min-height:80vh;
+	background:url(https://raw.githubusercontent.com/theAmMan/JISS/main/jstc.jpg) no-repeat center;
+	background-size: 150%;
+	background-position:center;
+	position:relative;
+	box-shadow:10px 12px 15px 10px rgba(0,0,0,.24),0 17px 50px 30px rgba(0,0,0,.19);
+}
+.login-html{
+	width:100%;
+	height:100%;
+	position:absolute;
+	padding:30px 50px 50px 50px;
+	background:rgba(0,0,40,.5);
+}
+.login-form{
+	min-height:345px;
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
+	display: inline;
+}
+.username{
+  color:#e0e0e0;
+  width:80%;
+}
+.login-form .group .button{	
+	border:none;
+	box-shadow:3px 5px 6px 3px rgba(0,0,0,.44),0 5px 10px 8px rgba(0,0,0,.19);
+}
+.login-form .group .button{
+	text-transform:uppercase;
+	border-radius:18px;
+	color:#fff;
+	width:50%;
+	margin-top:0px;
+  	margin-bottom:10vh;
+  	margin-left: 25%;
+  	font-size:14px;
+  	padding:2vh;
+}
+#pend{
+	margin-top: 30px;
+	background:rgba(255,125,93,0.7);
+	transition-duration: 0.4s;
+}
+#pend:hover {
+	background-color: white;
+	color: rgb(255,125,93);
+}
+#res{
+	background:rgba(87,255,93,0.7);
+	transition-duration: 0.4s;
+}
+#res:hover {
+	background-color: white;
+	color: rgb(87,255,93);
+}
+#up{
+	background:rgba(255,53,197,0.7);
+	transition-duration: 0.4s;
+}
+#up:hover {
+	background-color: white;
+	color: rgb(255,53,197);
+}
+h1{
+	font-family: "Oswald";
+  	color:rgba(255,215,245,0.9);
+  	text-transform:uppercase;
+	font-size:28px;
+	margin-right:15px;
+  	padding-top:0px;
+  	padding-bottom:20px;
+	text-decoration:underline 2px solid ;
+}
+.hr{
+	height:2px;
+	margin:10px 10px 50px 10px;
+	background:rgba(255,255,255,.2);
+}
+  </style>
+  <title>View Cases</title>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="login-wrap">
+	<div class="login-html">
+    <h1>View Cases</h1>
+    	<div class="login-form">
+    		<form action="" method="post">
+			<div class="group">
+				<input type="submit" class="button" name ="submit_button" value="Pending Cases" id="pend">
+			</div>
+			<div class="group">
+				<input type="submit" class="button" name ="submit_button" value="Resolved Cases" id="res">
+			</div>
+			<div class="group">
+				<input type="submit" class="button" name ="submit_button" value="Upcoming Cases" id="up">
+			</div>
+			<div class="hr"></div>
+      </form>
+		</div>
+	</div>
+</div>
+<!-- partial -->
+  
+</body>
+</html>

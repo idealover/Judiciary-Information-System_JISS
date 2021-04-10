@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+  <style>
+  	body{
+	margin:0;
+	color:#aaafcc;
+	background-image:url(https://raw.githubusercontent.com/theAmMan/JISS/main/court.jpeg);
+	background-repeat:no-repeat;
+	background-position: right;
+	background-attachment:fixed;
+	background-size:50%;
+	font:600 16px/18px 'Open Sans',sans-serif;
+}
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+.login-wrap{
+	width:100%;
+	margin:22px 10px 0px 20px;
+	max-width:500px;
+	min-height:300px;
+	background:url(https://raw.githubusercontent.com/theAmMan/JISS/main/jstc.jpg) no-repeat center;
+	background-position:center;
+	position:relative;
+	box-shadow:10px 12px 15px 10px rgba(0,0,0,.24),0 17px 50px 30px rgba(0,0,0,.19);
+}
+.login-html{
+	width:100%;
+	height:100%;
+	position:relative;
+	padding:30px 50px 20px 50px;
+	background:rgba(0,0,40,.5);
+}
+.login-form .group .label,
+.login-form .group .button1,
+.login-form .group .button2{
+	text-transform:uppercase;
+}
+.login-form{
+	min-height:245px;
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
+	margin-bottom: 0;
+}
+.error{
+  color:red;
+  padding-bottom:5px;
+}
+.success{
+  color:#99ff99;
+  padding-bottom:25px;
+}
+.username{
+  color:#e0e0e0;
+  width:80%;
+}
+.login-form .group{
+	margin-bottom:15px;
+}
+.login-form .group .label,
+.login-form .group .input{
+	width:100%;
+	color:#fff;
+	display:block;
+}
+.login-form .group .input,
+.login-form .group .button1{
+	border:none;
+	padding:15px 20px;
+	border-radius:15px;
+  	margin-bottom:30px;
+	background:rgba(255,255,255,.1);
+}
+.login-form .group .label{
+	color:#aaa;
+	font-size:12px;
+}
+.login-form .group .button1{
+	color:#fff;
+	width:80%;
+	margin-top:0px;
+  	margin-bottom:20px;
+  	margin-left: 30px;
+  	background:#1161ee;
+  	font-size:13px;
+  	padding:12px;
+}
+h1{
+	font-family: "Oswald";
+	color:#eee;
+	font-size: 28px;
+	padding-bottom: 40px;
+	text-decoration: underline;
+}
+h1,.home{
+	display: inline-block;
+}
+.home{
+	color:#ffffaa;
+	margin-left: 25%;
+}
+.hr{
+	height:2px;
+	margin:20px 0 20px 0;
+	background:rgba(255,255,255,.2);
+}
+  </style>
+  <title>Case Status</title> 
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="login-wrap">
+	<div class="login-html">
+    <div class="error">
+	{% if error %}
+    	<p><strong>Error:</strong> {{ error }}</p>
+	{% endif %}
+    </div>
+    <h1>View Case Status</h1>
+    <div class ="home"><A href="{{ url_for('login') }}">Return Home</A></div>
+    <form action="" method="post">
+		<div class="login-form">
+			<div class="group">
+				<label for="name" class="label">Enter CIN</label>
+				<input id="name" type="text" class="input" name=cin>
+			</div>
+			<div class="success">
+			{% if success %}
+		    	<p>{{ success }}</p>
+			{% endif %}
+			</div>
+			<div class="group">
+				<input type="submit" class="button1" value="View Status">
+			</div>
+			<div class="hr"></div>
+      </form>
+		</div>
+	</div>
+</div>
+<!-- partial -->
+  
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+  <style>
+  	body{
+	margin:0;
+	color:#aaafdc;
+	background-image:url(https://raw.githubusercontent.com/theAmMan/JISS/main/court.jpeg);
+	background-repeat:no-repeat;
+	background-position: right;
+	background-attachment:fixed;
+	background-size:50%;
+	font:600 16px/18px 'Open Sans',sans-serif;
+}
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+.login-wrap{
+	width:100%;
+	margin:25px 10px 10px 30px;
+	max-width:500px;
+	min-height:400px;
+	background:url(https://raw.githubusercontent.com/theAmMan/JISS/main/jstc.jpg) no-repeat center;
+	background-position:center;
+	position:relative;
+	box-shadow:10px 12px 15px 10px rgba(0,0,0,.24),0 17px 50px 30px rgba(0,0,0,.19);
+}
+.login-html{
+	margin-bottom:0px;
+	width:100%;
+	position:relative;
+	padding:30px 50px 0px 50px;
+	background:rgba(0,0,40,.5);
+}
+.error{
+	color:red;
+}
+.login-html .sign-in-judge-htm,
+.login-html .sign-in-lawyer-htm{
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+  	padding:10px 30px 0px 30px;
+  	margin-bottom:0px;
+	position:absolute;
+	transform:rotateY(180deg);
+	backface-visibility:hidden;
+	transition:all .4s linear;
+}
+.home{
+	text-align: right;
+	margin-bottom: 40px;
+}
+.login-html .sign-in-judge,
+.login-html .sign-in-lawyer{
+	display:none;
+	margin-bottom:0px;
+}
+.login-html .tab,
+.login-form .group .label,
+.login-form .group .button{
+	text-transform:uppercase;
+	margin-bottom:0px;
+}
+.login-html .tab{
+	font-size:22px;
+	margin-right:15px;
+	margin-bottom:0px;
+	padding-top: 35px;
+	padding-bottom:5px;
+	display:inline-block;
+	border-bottom:2px solid transparent;
+}
+.login-html .sign-in-judge:checked + .tab,
+.login-html .sign-in-lawyer:checked + .tab{
+	color:#fff;
+	border-color:#1161ee;
+	margin-bottom:0px;
+}
+.login-form{
+	min-height:345px;
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
+	margin-bottom:0px;
+}
+.login-form .group{
+	margin-bottom:0px;
+}
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .button{
+	margin-bottom:0px;
+	width:100%;
+	color:#fff;
+	display:block;
+}
+.login-form .group .input,
+.login-form .group .button{
+	border:none;
+	padding:15px 20px;
+	border-radius:20px;
+  	margin-bottom:60px;
+	background:rgba(255,255,255,.2);
+}
+.login-form .group .label{
+	color:#aaa;
+	font-size:12px;
+}
+.login-form .group .button{
+  	margin-top:0px;
+  	margin-bottom:0px;
+	background:#1161ee;
+	font-size:13px;
+  	padding:12px;
+}
+.login-html .sign-in-judge:checked + .tab + .sign-in-lawyer + .tab + .login-form .sign-in-judge-htm{
+	transform:rotate(0);
+}
+.login-html .sign-in-lawyer:checked + .tab + .login-form .sign-in-lawyer-htm{
+	transform:rotate(0);
+}
+
+.hr{
+	height:2px;
+	margin-top:80px;
+	background:rgba(255,255,255,.2);
+}
+  </style>
+  <title>Delete User</title>
+  
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="login-wrap">
+	<div class="login-html">
+	<div class="error">
+	{% if error %}
+        <p><strong>Error:</strong> {{ error }}</p>
+    {% endif %}
+    </div>
+    <form action = "" method = "post">
+		<input id="tab-1" type="radio" name="tab" class="sign-in-judge" value="jud" checked><label for="tab-1" class="tab">Judge</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-in-lawyer" value="law"><label for="tab-2" class="tab">Lawyer</label>
+		<div class="login-form">
+			<div class="sign-in-judge-htm">
+				<div class="group">
+					<div class="home"><A href="{{ url_for('login') }}">Return Home</A></div>
+					<label for="user" class="label">Enter Username</label>
+					<input id="user" type="text" class="input" name=username>
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Delete User">
+				</div>
+				<div class="hr"></div>
+			</div>
+			<div class="sign-in-lawyer-htm">
+				<div class="group">
+					<div class="home"><A href="{{ url_for('login') }}">Return Home</A></div>
+					<label for="user" class="label">Enter Username</label>
+					<input id="user" type="text" class="input" name=username1>
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Delete User">
+				</div>
+				<div class="hr"></div>
+			</div>
+		</div>
+	</form>
+	</div>
+</div>
+<!-- partial -->
+  
+</body>
+<!-- partial -->
+  
+</body>
+</html>

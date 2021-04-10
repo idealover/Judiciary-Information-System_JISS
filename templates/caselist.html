@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+  <style>
+  	body{
+	margin:0;
+	color:#ddd;
+	background-color: rgb(255,240,255);
+	font:600 16px/18px 'Open Sans',sans-serif;
+}
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+.case-wrap{
+	background:url(https://raw.githubusercontent.com/theAmMan/JISS/main/jstc.jpg) no-repeat center;
+	background-size:100%;
+	width: 99%;
+	height:98vh;
+	margin: auto;
+	margin-top: 0.5%;
+	background-position:center;
+	position:relative;
+	box-shadow:10px 12px 15px 10px rgba(0,0,0,.24),0 17px 50px 30px rgba(0,0,0,.19);
+}
+.case-html{
+	width:100%;
+	height:100%;
+	position:relative;
+	padding:30px 50px 0px 50px;
+	background:rgba(0,0,40,.5);
+}
+.case-html .case-htm{
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	overflow: auto;
+	height: 100%;
+  	padding:5px 30px 20px 30px;
+	position:relative;
+	backface-visibility:hidden;
+}
+.case-html .case{
+	display:none;
+}
+h1{
+	font-family: "Oswald";
+  	color:rgba(225,100,255,0.8);
+  	text-transform:uppercase;
+	font-size:30px;
+	margin-right:15px;
+  	padding-top:0px;
+  	padding-bottom:20px;
+	text-decoration:underline 2px solid ;
+}
+.case-form{
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
+}
+.group{
+	height: 70vh;
+	margin-bottom: 0px;
+	font-size: 16px;
+}
+.summary{
+	color: rgba(210,230,250,0.8);
+	font-size: 13px;
+}
+.hr{
+	height:2px;
+	margin:10px 10px 10px 10px;
+	background:rgba(255,255,255,.2);
+}
+.error{
+	color: red;
+}
+.button1{
+	border:none;
+	border-radius: 5px;
+	color:#fff;
+	margin-top:0px;
+  	margin-bottom:20px;
+  	margin-left: 30px;
+  	background:#1161ee;
+  	font-size:13px;
+  	padding:6px;
+  	transition-duration: 0.4s;
+}
+.button1:hover{
+	color:#1161ee;
+	background: #fff;
+}
+p{
+	word-wrap: normal;
+	color:#eee;
+}
+h1,.home{
+	display: inline-block;
+}
+.home{
+	color:#ffffaa;
+	margin-left: 70%;
+}
+
+  </style>
+  <title>Cases</title>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="case-wrap">
+	<div class="case-html">
+    <div class="case-form">
+    <div class="error">
+	{% if error %}
+		<strong>Error:</strong> {{ error }}
+	{% endif %}
+	</div>
+	<div class="case-htm">
+    	<h1>Cases</h1>
+    	<div class ="home"><A href="{{ url_for('login') }}">Return Home</A></div>
+    	<form action="" method="post">
+    	<div class="group">
+			{%for i in message%}
+				<div class="hr"></div>
+				<p>CIN: {{i[0]}} :: Defendant: {{i[1]}} :: Judge: {{i[8]}} :: Crime Type: {{i[3]}}</p>
+				<input type="submit" class="button1" name="submit_button" value="View Case #{{i[0]}}">
+			{%endfor%}
+		</div>
+		</form>
+    </div>
+	</div>
+</div>
+<!-- partial -->
+  
+</body>
+</html>

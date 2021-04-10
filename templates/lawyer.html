@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+  <style>
+  	body{
+	margin:0;
+	color:#6a6f8c;
+	background-image:url(https://raw.githubusercontent.com/theAmMan/JISS/main/court.jpeg);
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-position: right;
+	background-size:50%;
+	font:600 16px/18px 'Open Sans',sans-serif;
+}
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+.login-wrap{
+	width:100%;
+	margin-left: 20px;
+	margin-top: 10px;
+	max-width:500px;
+	min-height:400px;
+	background:url(https://raw.githubusercontent.com/theAmMan/JISS/main/lawyer.jpg) no-repeat center;
+	background-position:center;
+	background-size: 100%;
+	position:relative;
+	box-shadow:10px 12px 15px 10px rgba(0,0,0,.24),0 17px 50px 30px rgba(0,0,0,.19);
+}
+.login-html{
+	width:100%;
+	height:100%;
+	position:relative;
+	padding:30px 50px 50px 50px;
+	background:rgba(0,0,40,.8);
+}
+.login-form .group .label,
+.login-form .group .button1,
+.login-form .group .button2{
+	text-transform:uppercase;
+}
+.login-form{
+	min-height:345px;
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
+}
+.error{
+  color:red;
+  padding-bottom:20px;
+}
+.username{
+  color:#e0e0e0;
+  width:80%;
+}
+.username,.logout{
+  display:inline-block;
+}
+.logout{
+  text-transform:uppercase;
+  color:#33c1ff;
+  border-bottom:2px solid;
+}
+.wallet{
+	color:#11c1a1;
+	padding-top: 0;
+	text-align: right;
+	font-size: 14px;
+}
+.login-form .group{
+	margin-bottom:15px;
+}
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .button1,
+.login-form .group .button2{
+	width:100%;
+	color:#fff;
+	display:block;
+}
+.login-form .group .input,
+.login-form .group .button1,
+.login-form .group .button2{
+	border:none;
+	padding:15px 20px;
+	border-radius:5px;
+  	margin-bottom:40px;
+	background:rgba(255,255,255,.2);
+}
+.login-form .group .label{
+	color:#aaa;
+	font-size:12px;
+}
+.login-form .group .button1{
+	color:#fff;
+	width:80%;
+	margin-top:0px;
+  	margin-bottom:40px;
+  	margin-left: 10%;
+  	background:#1161ee;
+  	font-size:13px;
+  	padding:12px;
+}
+.login-form .group .button2{
+	color:#fff;
+	width:30%;
+	margin-top:0px;
+  	margin-bottom:0px;
+  	margin-left: 35%;
+  	background:#11c16e;
+  	font-size:13px;
+  	padding:12px;
+}
+.hr{
+	height:2px;
+	margin:40px 0 0px 0;
+	background:rgba(255,255,255,.2);
+}
+  </style>
+  <title>Welcome {{message}}</title>
+  	
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="login-wrap">
+	<div class="login-html">
+    <div class="username"><p><strong>Welcome </strong>{{message}}</p></div>
+    <div><p class="wallet"><i><strong>Balance: </strong>{{money}}</i></p></div>
+    <div class="error">
+	  	{% if error %}
+			<strong>Error:</strong> {{ error }}
+		{% endif %}
+    </div>
+		<div class="login-form">
+    <form action="" method="post">
+			<div class="group">
+				<label for="cin" class="label">Enter CIN</label>
+				<input id="cin" type="text" class="input" name=cin>
+			</div>
+			<div class="group">
+				<label for="key" class="label">Enter Keyword</label>
+				<input id="key" type="text" class="input" name=key>
+			</div>
+			<div class="group">
+				<input type="submit" class="button1" name="submit_button" value="Search">
+			</div>
+			<div class="group">
+				<input type="submit" class="button2" name="submit_button" value="Log Out">
+			</div>
+			<div class="hr"></div>
+      </form>
+		</div>
+	</div>
+</div>
+<!-- partial -->
+</body>
+</html>

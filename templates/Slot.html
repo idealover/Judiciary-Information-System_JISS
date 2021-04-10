@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+  <style>
+  	body{
+	margin:0;
+	color:#fff;
+	background-color: rgb(230,255,250);
+	font:600 16px/18px 'Open Sans',sans-serif;
+}
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+.login-wrap{
+	background:url(https://raw.githubusercontent.com/theAmMan/JISS/main/jstc.jpg) no-repeat center;
+	background-size:100%;
+	width: 99%;
+	height:98vh;
+	margin: auto;
+	margin-top: 0.5%;
+	background-position:center;
+	position:relative;
+	box-shadow:10px 12px 15px 10px rgba(0,0,0,.24),0 17px 50px 30px rgba(0,0,0,.19);
+}
+.login-html{
+	width:50%;
+	height:100%;
+	position:absolute;
+	padding:50px 50px 50px 50px;
+	background:rgba(0,0,40,.5);
+	float:left;
+}
+.right{
+	width: 50%;
+	height:100%;
+	padding:30px 50px 50px 50px;
+	background:rgba(0,0,40,.5);
+	float:right;
+}
+.login-form .group .label,
+.login-form .group .button1,
+.login-form .group .button2{
+	text-transform:uppercase;
+}
+.login-form{
+	min-height:345px;
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
+}
+.error{
+  color:red;
+  padding-bottom:5px;
+}
+.login-form .group{
+	margin-bottom:15px;
+}
+.login-form .group .label,
+.login-form .group .input{
+	width:100%;
+	color:#fff;
+	display:block;
+}
+.login-form .group .input,
+.login-form .group .button1{
+	border:none;
+	padding:15px 20px;
+	border-radius:15px;
+  	margin-bottom:60px;
+	background:rgba(255,255,255,.1);
+}
+.login-form .group .label{
+	color:#aaa;
+	font-size:14px;
+	margin-bottom: 10px;
+}
+.login-form .group .button1{
+	color:#fff;
+	width:80%;
+	margin-top:0px;
+  	margin-bottom:60px;
+  	margin-left: 20px;
+  	background:#1161ee;
+  	font-size:15px;
+  	padding:12px;
+  	transition-duration: 0.4s;
+}
+.login-form .group .button1:hover{
+	color:#1161ee;
+	background-color: white;
+}
+h1{
+	font-family: "Oswald";
+	color:#eee;
+	font-size: 30px;
+	padding-bottom: 70px;
+	text-decoration: underline;
+}
+.hr{
+	height:2px;
+	margin:20px 0 50px 0;
+	background:rgba(255,255,255,.2);
+}
+.slots{
+	color:#eee;
+	font-size: 15px;
+}
+.button2{
+	border: none;
+	border-radius: 4px;
+	color:#fff;
+	margin-top:0px;
+  	margin-left: 10px;
+  	background:#008c70;
+  	font-size:15px;
+  	padding:5px;
+  	transition-duration: 0.4s;
+}
+.button2:hover{
+	color:#008c70;
+	background-color: #fff;
+}
+.button2:disabled{
+	background-color: #aaa;
+	color: #fff;	
+}
+.slots,.but{
+	display: inline-block;
+}
+.date{
+	text-align: right;
+	color: #eeff88;
+	text-decoration: 2px solid underline;
+	margin-bottom:40px;
+}
+  </style>
+  <title>Slots</title> 
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="login-wrap">
+	<div class="login-html">
+    <h1>Select a Hearing Slot</h1>
+    <form action="" method="post">
+		<div class="login-form">
+			<div class="group">
+				<label for="date" class="label">Enter Date (DD/MM/YYYY)</label>
+				<input id="date" type="text" class="input" name=date>
+			</div>
+			<div class="group">
+				<input type="submit" class="button1" value="View Slots">
+			</div>
+			<div class="hr"></div>
+		</div>
+	</div>
+    <div class="right">
+    	<div class="error">
+			{% if error %}
+		        <p><strong>Error:</strong> {{ error }}</p>
+		    {% endif %}
+		</div>  
+		<div class="date">
+			{{date}}
+		</div> 
+		{%if i%}
+	    <div class="group">
+			<div class="slots"><p>From 10:00 To 11:00</p></div>
+			{%if i[0]%}
+			<div class="but"><input type="submit" class="button2" name = "submit_button" name = "submit_button" value="Book Slot 0"></div>
+			{%else%}
+			<div class="but"><input type="submit" class="button2" name = "submit_button" value="Book Slot 0" disabled></div>
+			{%endif%}
+		</div>
+		<div class="group">
+			<div class="slots"><p>From 11:00 To 12:00</p></div>
+			{%if i[1]%}
+			<div class="but"><input type="submit" class="button2" name = "submit_button" value="Book Slot 1"></div>
+			{%else%}
+			<div class="but"><input type="submit" class="button2" name = "submit_button" value="Book Slot 1" disabled></div>
+			{%endif%}
+		</div>
+		<div class="group">
+			<div class="slots"><p>From 12:00 To 13:00</p></div>
+			{%if i[2]%}
+			<div class="but"><input type="submit" class="button2" name = "submit_button" value="Book Slot 2"></div>
+			{%else%}
+			<div class="but"><input type="submit" class="button2" name = "submit_button" value="Book Slot 2" disabled></div>
+			{%endif%}
+		</div>
+		<div class="group">
+			<div class="slots"><p>From 13:00 To 14:00</p></div>
+			{%if i[3]%}
+			<div class="but"><input type="submit" class="button2" name = "submit_button" value="Book Slot 3"></div>
+			{%else%}
+			<div class="but"><input type="submit" class="button2" name = "submit_button" value="Book Slot 3" disabled></div>
+			{%endif%}
+		</div>
+		<div class="group">
+			<div class="slots"><p>From 15:00 To 16:00</p></div>
+			{%if i[4]%}
+			<div class="but"><input type="submit" class="button2" name = "submit_button" value="Book Slot 4"></div>
+			{%else%}
+			<div class="but"><input type="submit" class="button2" name = "submit_button" value="Book Slot 4" disabled></div>
+			{%endif%}
+		</div>
+		<div class="group">
+			<div class="slots"><p>From 16:00 To 17:00</p></div>
+			{%if i[5]%}
+			<div class="but"><input type="submit" class="button2" name = "submit_button" value="Book Slot 5"></div>
+			{%else%}
+			<div class="but"><input type="submit" class="button2" name = "submit_button" value="Book Slot 5" disabled></div>
+			{%endif%}
+		</div>
+		{%endif%}
+    </div>
+	</form>
+	</div>
+	</div>
+</div>
+<!-- partial -->
+  
+</body>
+</html>
