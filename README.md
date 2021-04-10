@@ -61,3 +61,9 @@ Following pre requirements are must for this project :
 
 
 END
+
+# Contributors:
+
+- Esha Manideep
+- Amartya Mandal (Project Leader, GAWD)
+- Divyansh Bhatia
