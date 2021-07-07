@@ -65,5 +65,5 @@ END
 # Contributors:
 
 - Esha Manideep
-- Amartya Mandal (Project Leader, GAWD)
+- Amartya Mandal
 - Divyansh Bhatia
